@@ -1,0 +1,70 @@
+{
+  "name": "react_native_tdd",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "0.65.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/jest-native": "^4.0.2",
+    "@testing-library/react-native": "^7.2.0",
+    "babel-jest": "^26.6.3",
+    "detox": "^18.20.3",
+    "eslint": "7.14.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-import": "^2.22.1",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "^0.66.0",
+    "prettier": "^2.2.1",
+    "react-native-codegen": "^0.0.7",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "verbose": true,
+    "roots": [
+      "<rootDir>/src",
+      "<rootDir>/tests"
+    ],
+    "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ],
+    "moduleDirectories": ["node_modules"],
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "moduleNameMapper": {
+      "@src(.*)$": "<rootDir>/src/$1",
+      "@tests(.*)$": "<rootDir>/tests/$1"
+    }
+  },
+  "eslintConfig": {
+    "extends": ["@react-native-community", "prettier"],
+    "plugins": ["import", "prettier"],
+    "rules": {
+      "prettier/prettier": "error",
+      "no-unused-vars": "warn",
+      "no-console": "off",
+      "func-names": "off",
+      "no-process-exit": "off",
+      "object-shorthand": "off",
+      "class-methods-use-this": "off"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "arrowParens": "always"
+  }
+}
