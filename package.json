@@ -26,6 +26,7 @@
     "eslint-plugin-detox": "^1.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-jest": "^24.4.0",
     "jest": "^26.6.3",
     "jest-circus": "^27.1.1",
     "metro-react-native-babel-preset": "^0.66.0",
@@ -35,10 +36,6 @@
   },
   "jest": {
     "verbose": true,
-    "roots": [
-      "<rootDir>/src",
-      "<rootDir>/tests"
-    ],
     "preset": "react-native",
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
@@ -65,7 +62,8 @@
     "plugins": [
       "import",
       "prettier",
-      "detox"
+      "detox",
+      "jest"
     ],
     "overrides": [{
       "files": ["*.e2e.js"],
@@ -74,8 +72,8 @@
         "jest": true,
         "jest/globals": true
       }
-    }
-  ],
+    }],
+    "parser": "@babel/eslint-parser",
     "rules": {
       "prettier/prettier": "error",
       "no-unused-vars": "warn",
