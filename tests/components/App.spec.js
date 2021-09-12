@@ -19,4 +19,12 @@ describe('App', () => {
       expect(wrapper.getByText(sectionTitle)).toBeTruthy();
     }
   );
+
+  it('should show screen header component', function () {
+    expect(wrapper.getByTestId('screen-header')).toBeTruthy();
+  });
+
+  it('should show button "btn-click-me"', function () {
+    expect(wrapper.getByTestId('btn-click-me')).toBeTruthy();
+  });
 });

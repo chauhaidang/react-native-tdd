@@ -1,0 +1,41 @@
+{
+  "testRunner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "skipLegacyWorkersInjection": true,
+  "apps": {
+    "ios.debug": {
+      "type": "ios.app",
+      "binaryPath": "ios/build/Products/Debug-iphonesimulator/react_native_tdd.app",
+      "build": "xcodebuild -workspace react_native_tdd.xcworkspace -sdk iphonesimulator -configuration Debug -scheme react_native_tdd -destination 'platform=iOS Simulator,name=iPhone 12,OS=14.5' -derivedDataPath ios/build"
+    },
+    "android": {
+      "type": "android.apk",
+      "binaryPath": "SPECIFY_PATH_TO_YOUR_APP_BINARY"
+    }
+  },
+  "devices": {
+    "simulator": {
+      "type": "ios.simulator",
+      "device": {
+        "type": "iPhone 12",
+        "os": "iOS 14.5"
+      }
+    },
+    "emulator": {
+      "type": "android.emulator",
+      "device": {
+        "avdName": "Pixel_3a_API_30_x86"
+      }
+    }
+  },
+  "configurations": {
+    "ios": {
+      "device": "simulator",
+      "app": "ios.debug"
+    },
+    "android": {
+      "device": "emulator",
+      "app": "android"
+    }
+  }
+}

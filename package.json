@@ -23,9 +23,11 @@
     "detox": "^18.20.3",
     "eslint": "7.14.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-detox": "^1.0.0",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
     "jest": "^26.6.3",
+    "jest-circus": "^27.1.1",
     "metro-react-native-babel-preset": "^0.66.0",
     "prettier": "^2.2.1",
     "react-native-codegen": "^0.0.7",
@@ -41,16 +43,39 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
-    "moduleDirectories": ["node_modules"],
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
     "moduleNameMapper": {
       "@src(.*)$": "<rootDir>/src/$1",
       "@tests(.*)$": "<rootDir>/tests/$1"
     }
   },
   "eslintConfig": {
-    "extends": ["@react-native-community", "prettier"],
-    "plugins": ["import", "prettier"],
+    "extends": [
+      "@react-native-community",
+      "prettier"
+    ],
+    "plugins": [
+      "import",
+      "prettier",
+      "detox"
+    ],
+    "overrides": [{
+      "files": ["*.e2e.js"],
+      "env": {
+        "detox/detox": true,
+        "jest": true,
+        "jest/globals": true
+      }
+    }
+  ],
     "rules": {
       "prettier/prettier": "error",
       "no-unused-vars": "warn",
