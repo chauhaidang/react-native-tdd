@@ -13,6 +13,8 @@ describe('Manage Restaurant', () => {
     await element(by.id('inputRestaurant')).typeText(restaurantName);
     await element(by.id('saveRestaurant')).tap();
     await expect(element(by.label(restaurantName))).toBeVisible();
-    await expect(element(by.id('inputRestaurant'))).not.toBeVisible();
+    await expect(
+      element(by.id('inputRestaurant').and(by.text(restaurantName)))
+    ).not.toBeVisible();
   });
 });
