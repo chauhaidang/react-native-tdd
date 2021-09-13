@@ -33,9 +33,9 @@ describe('RestaurantList component', () => {
 
   it("should render restaurant items after child component's onPress fired multiple times", function () {
     const listRestaurants = ['ABC', 'CDF'];
-    fireEvent.press(wrapper.getByTestId('addRestaurant'));
 
     for (const restaurant of listRestaurants) {
+      fireEvent.press(wrapper.getByTestId('addRestaurant'));
       fireEvent.changeText(wrapper.getByTestId('inputRestaurant'), restaurant);
       fireEvent.press(wrapper.getByTestId('saveRestaurant'));
     }
@@ -53,6 +53,6 @@ describe('RestaurantList component', () => {
     fireEvent.changeText(input, textChange);
     fireEvent.press(wrapper.getByTestId('saveRestaurant'));
 
-    expect(input.props.value).toEqual('');
+    expect(wrapper.queryByTestId('inputRestaurant')).toBeFalsy();
   });
 });

@@ -12,6 +12,7 @@ export default () => {
 
   const onSaveHandler = (textInput) => {
     setListRestaurants((latestList) => [textInput, ...latestList]);
+    setIsModalVisible(false);
   };
 
   const renderListItem = ({ item }) => {
